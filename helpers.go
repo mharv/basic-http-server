@@ -7,12 +7,12 @@ import (
 	"os"
 )
 
-func ConnectDb() map[string]interface{} {
+func GetDb() map[string]interface{} {
 	jsonFile, err := os.Open("fakeDb.json")
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("Successfully Opened faeDb.json")
+	fmt.Println("Successfully Opened fakeDb.json")
 	defer jsonFile.Close()
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)

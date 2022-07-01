@@ -8,9 +8,11 @@ import (
 
 func main() {
 	r := gin.Default()
+
 	r.GET("/ping", func(c *gin.Context) {
-		result := ConnectDb()
+		result := GetDb()
 		c.JSON(http.StatusCreated, gin.H{"message": result["test"]})
 	})
+
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
