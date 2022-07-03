@@ -13,6 +13,9 @@ func main() {
 		result := GetDb()
 		c.JSON(http.StatusCreated, gin.H{"message": result["test"]})
 	})
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusCreated, gin.H{"message": "Howdy, Country"})
+	})
 
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
