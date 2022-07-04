@@ -33,5 +33,14 @@ func SaveDb(content map[string]interface{}) string {
 	if err != nil {
 		fmt.Println(err)
 	}
-	return "save complete"
+	return "save complete\n"
+}
+func DeleteDb() string {
+
+	err := os.WriteFile("fakeDb.json", []byte{}, 0666)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	return "delete complete\n"
 }

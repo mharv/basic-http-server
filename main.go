@@ -12,17 +12,17 @@ import (
 func main() {
 	r := gin.Default()
 	// GET example
-	r.GET("/getData", func(c *gin.Context) {
+	r.GET("/data", func(ctx *gin.Context) {
 		result := GetDb()
-		c.JSON(http.StatusCreated, gin.H{"message": result})
+		ctx.JSON(http.StatusCreated, gin.H{"message": result})
 	})
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusCreated, gin.H{"message": "returning no data from the database"})
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusCreated, gin.H{"message": "returning no data from the database \n"})
 	})
 
 	// POST example
-	r.POST("/postData", func(ctx *gin.Context) {
+	r.POST("/data", func(ctx *gin.Context) {
 		jsonData, err := ioutil.ReadAll(ctx.Request.Body)
 		if err != nil {
 			// Handle error
@@ -41,5 +41,11 @@ func main() {
 	})
 	// DELETE example
 
+	r.DELETE("/data", func(ctx *gin.Context) {
+
+		message := DeleteDb()
+
+		ctx.JSON(http.StatusCreated, gin.H{"message": message})
+	})
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
