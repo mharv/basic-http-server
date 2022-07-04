@@ -1,0 +1,10 @@
+{
+    "0": {
+        "id": 0,
+        "interestingData" : "Hello there"
+    },
+    "1": {
+        "id": 1,
+        "interestingData" : "Change me using postman!"
+    }
+} 

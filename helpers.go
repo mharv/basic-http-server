@@ -22,3 +22,16 @@ func GetDb() map[string]interface{} {
 
 	return result
 }
+func SaveDb(content map[string]interface{}) string {
+	contentJson, err := json.Marshal(content)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	err = os.WriteFile("fakeDb.json", contentJson, 0666)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	return "save complete"
+}
